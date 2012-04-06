@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Open file in editor if the file doesn't exist it is created
+# if a template exists in ~/Templates it is used otherwise an
+# empty file is created.
+#
+# Jakob Hilarius <http://syscall.dk>, 2012
+#
+
+# The application to use as editor
+EDITOR_APP=TextWrangler
+
+# Template directory containing the template.* files
+TEMPLATE_DIR=${HOME}/Templates
+
+if [ $# -lt 1 ]
+then
+	echo "Usage: $(basename $0) <filename> [filenames...]"
+	exit 7
+fi
+
+for filename in "$@"
+do
+	# Check if we specifing a non-existent file
+	if [ ! -e ${filename} ]
+	then
+		created=false
+	    if [ -d ${TEMPLATE_DIR} ]
+	    then
+			extension=${filename##*.}
+			if [ -e ${TEMPLATE_DIR}/template.${extension} ]
+			then
+				cp ${TEMPLATE_DIR}/template.${extension} ${filename}
+				created=true
+			fi
+		fi
+		
+		if ! ${created}
+		then
+			touch ${filename}
+	    fi
+	fi
+done
+
+open -a ${EDITOR_APP} $@
