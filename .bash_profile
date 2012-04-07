@@ -1,5 +1,7 @@
 alias ls='ls -G'
 alias grep='grep --colour=auto'
+
+export PS1="\u@\h [\e[0;32m\w\e[m] $ " 
         
 # Android SDK
 export ANDROID_HOME=${HOME}/Applications/android-sdk-mac_x86

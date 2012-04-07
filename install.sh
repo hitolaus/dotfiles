@@ -11,6 +11,10 @@ do
 	if [[ "$f" == "." || "$f" == ".." ]]; then
 		continue;
 	fi
+	# Ignore Git metadata
+	if [ "$f" == ".git" ]; then
+		continue;
+	fi
 	# Ignore this script
 	if [ "$f" == "$(basename $0)" ]; then
 		continue;
