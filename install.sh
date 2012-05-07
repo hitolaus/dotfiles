@@ -19,6 +19,10 @@ do
 	if [ "$f" == "$(basename $0)" ]; then
 		continue;
 	fi
+	# Ignore osx-setup script
+	if [ "$f" == "osx-setup.sh" ]; then
+		continue;
+	fi
 	if [ -e "$HOME/$f" ]; then
 		echo "$HOME/$f exist, ignoring"
 		continue;
