@@ -9,7 +9,6 @@ export ANDROID_HOME=${HOME}/Applications/android-sdk-mac_x86
 # Maven config
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256M"
 
-=======
 export PATH=${PATH}:${HOME}/bin:${ANDROID_HOME}/tools
 
 # Load local configs
