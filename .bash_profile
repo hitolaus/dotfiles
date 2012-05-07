@@ -6,4 +6,10 @@ export PS1="\h [\e[0;32m\w\e[m] $ "
 # Android SDK
 export ANDROID_HOME=${HOME}/Applications/android-sdk-mac_x86
 
-export PATH=${PATH}:${HOME}/bin:${ANDROID_HOME}/tools
+export PATH=/opt/local/bin:${PATH}:${HOME}/bin:${ANDROID_HOME}/tools
+
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256M"
+
+#if [ -f /opt/local/etc/bash_completion ]; then
+#    . /opt/local/etc/bash_completion
+#fi
