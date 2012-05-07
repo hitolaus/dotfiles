@@ -9,8 +9,13 @@ export ANDROID_HOME=${HOME}/Applications/android-sdk-mac_x86
 # Maven config
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256M"
 
-export PATH=${HOME}/bin:${PATH}:${ANDROID_HOME}/tools
+export PATH=${HOME}/bin:/opt/local/bin:${PATH}:${ANDROID_HOME}/tools
 
+
+
+# Github
+git config --global user.name "Jakob Hilarius"
+git config --global user.email "jakob@syscall.dk"
 
 if [ -f /opt/local/etc/bash_completion ]
 then
