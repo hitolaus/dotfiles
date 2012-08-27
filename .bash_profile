@@ -20,6 +20,9 @@ then
 	. /opt/local/etc/bash_completion
 fi
 
+# Heroku setup
+export DATABASE_URL=postgresql://postgres:postgres@localhost:5432
+
 ##
 # Load custom local config
 ##
