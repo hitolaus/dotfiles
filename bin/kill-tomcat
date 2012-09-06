@@ -1,0 +1,9 @@
+#!/bin/bash
+PID=$(ps aux | grep tomcat | grep catalina  | tr -s ' ' | cut -d ' ' -f2)
+
+if [[ -z $PID ]]; then
+	echo "No running Tomcat found"
+	exit 1
+fi
+
+kill -9 $PID
