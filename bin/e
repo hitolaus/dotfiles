@@ -22,24 +22,24 @@ fi
 for filename in "$@"
 do
 	# Check if we specifing a non-existent file
-	if [ ! -e ${filename} ]
+	if [ ! -e "${filename}" ]
 	then
 		created=false
 	    if [ -d ${TEMPLATE_DIR} ]
 	    then
 			extension=${filename##*.}
-			if [ -e ${TEMPLATE_DIR}/template.${extension} ]
+			if [ -e "${TEMPLATE_DIR}/template.${extension}" ]
 			then
-				cp ${TEMPLATE_DIR}/template.${extension} ${filename}
+				cp "${TEMPLATE_DIR}/template.${extension}" "${filename}"
 				created=true
 			fi
 		fi
 		
 		if ! ${created}
 		then
-			touch ${filename}
+			touch "${filename}"
 	    fi
 	fi
 done
 
-open -a ${EDITOR_APP} $@
+open -a ${EDITOR_APP} "$@"
