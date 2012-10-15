@@ -8,7 +8,7 @@
 #
 
 # The application to use as editor
-EDITOR_APP=TextWrangler
+EDITOR_APP=TextMate
 
 # Template directory containing the template.* files
 TEMPLATE_DIR=${HOME}/Templates
