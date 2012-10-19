@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Search for content in files recursively from CWD.
+# This command supports spaces in directory names and excludes common
+# "dump"-files
+#
+# Jakob Hilarius <http://syscall.dk>, 2012
+#
+
+if [[ $# != 2 ]]; then
+    echo "Usage: cfind <extension> <search-term>"
+    exit 7
+fi
+
+find . -name "*.$1" -print0 | xargs -0 grep $2 | grep -v target
