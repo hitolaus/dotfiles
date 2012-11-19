@@ -173,7 +173,7 @@ defaults write com.apple.dock itunes-notifications -bool false
 #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
 
 # Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
+#defaults write com.apple.screencapture disable-shadow -bool true
 
 # Disable Safari’s thumbnail cache for History and Top Sites
 defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
