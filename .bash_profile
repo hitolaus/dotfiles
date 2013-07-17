@@ -82,6 +82,41 @@ NewLine="\n"
 Jobs="\j"
 Host="\h"
 
+# Set ls colors.
+#
+# The color designators are as follows:
+# a     black
+# b     red
+# c     green
+# d     brown
+# e     blue
+# f     magenta
+# g     cyan
+# h     light grey
+# A     bold black, usually shows up as dark grey
+# B     bold red
+# C     bold green
+# D     bold brown, usually shows up as yellow
+# E     bold blue
+# F     bold magenta
+# G     bold cyan
+# H     bold light grey; looks like bright white
+# x     default foreground or background
+#
+# The order of the attributes are as follows:
+# 1.   directory
+# 2.   symbolic link
+# 3.   socket
+# 4.   pipe
+# 5.   executable
+# 6.   block special
+# 7.   character special
+# 8.   executable with setuid bit set
+# 9.   executable with setgid bit set
+# 10.  directory writable to others, with sticky bit
+# 11.  directory writable to others, without sticky bit
+export LSCOLORS=Hxfxcxdxbxegedabagacad
+
 alias ls='ls -G'
 alias grep='grep --colour=auto'
 
@@ -146,10 +181,12 @@ then
 	. ${HOME}/.bash_profile_local
 fi
 
-__git_ps1 () 
-{ 
+__git_ps1 ()
+{
     local b="$(git symbolic-ref HEAD 2>/dev/null)";
     if [ -n "$b" ]; then
         printf " (%s)" "${b##refs/heads/}";
     fi
 }
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
