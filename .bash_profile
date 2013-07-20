@@ -104,9 +104,10 @@ fi)'
 #export PS1="\h [\[\e[0;32m\]\w\[\e[m\]] $ "
 
 # Android SDK
-export ANDROID_HOME=${HOME}/Applications/android-sdk-mac_x86
+export ANDROID_HOME=${HOME}/Development/android-sdk-macosx
+export ANDROID_NDK_HOME=${HOME}/Development/android-ndk-r8e
 
-export PATH=${PATH}:${HOME}/bin:${ANDROID_HOME}/tools:/Developer/usr/bin:/opt/local/bin:/usr/local/share/npm/bin
+export PATH=${PATH}:${HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_NDK_HOME}:/Developer/usr/bin:/opt/local/bin:/usr/local/share/npm/bin:/usr/local/sbin
 
 # Maven config
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256M -Dfile.encoding=UTF-8"
@@ -146,10 +147,12 @@ then
 	. ${HOME}/.bash_profile_local
 fi
 
-__git_ps1 () 
-{ 
+__git_ps1 ()
+{
     local b="$(git symbolic-ref HEAD 2>/dev/null)";
     if [ -n "$b" ]; then
         printf " (%s)" "${b##refs/heads/}";
     fi
 }
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
