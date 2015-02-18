@@ -115,13 +115,20 @@ Host="\h"
 # 9.   executable with setgid bit set
 # 10.  directory writable to others, with sticky bit
 # 11.  directory writable to others, without sticky bit
-export LSCOLORS=Hxfxcxdxbxegedabagacad
+export LSCOLORS=exfxcxdxbxegedabagacad
 
 alias ls='ls -G'
 alias grep='grep --colour=auto'
 
+alias myip='curl ip.appspot.com' 
+
+#   Set default blocksize for ls, df, du
+#   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
+#   ------------------------------------------------------------
+export BLOCKSIZE=1k
+
 # Setup prompt
-export PS1=$IBlack$Host$Color_Off'$(git branch &>/dev/null;\
+export PS1=$Host'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [ "$?" -eq "0" ]; then \
@@ -130,19 +137,19 @@ if [ $? -eq 0 ]; then \
   else \
     # @5 - Changes to working tree
     echo "'$IRed'"$(__git_ps1 " {%s}"); \
-  fi) '$Yellow$PathShort$Color_Off' \$ "; \
+  fi) '$White$PathShort$Color_Off' \$ "; \
 else \
   # @2 - Prompt when not in GIT repo
-  echo " '$Yellow$PathShort$Color_Off' \$ "; \
+  echo " '$White$PathShort$Color_Off' \$ "; \
 fi)'
 
 #export PS1="\h [\[\e[0;32m\]\w\[\e[m\]] $ "
 
 # Android SDK
-export ANDROID_HOME=${HOME}/Development/android-sdk-macosx
-export ANDROID_NDK_HOME=${HOME}/Development/android-ndk-r8e
+export ANDROID_HOME=/Users/jhn/Library/Android/sdk
 
-export PATH=${PATH}:${HOME}/bin:${ANDROID_HOME}/tools:${ANDROID_NDK_HOME}:/Developer/usr/bin:/opt/local/bin:/usr/local/share/npm/bin:/usr/local/sbin
+# Path
+export PATH=${PATH}:${HOME}/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # Maven config
 export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256M -Dfile.encoding=UTF-8"
@@ -163,18 +170,6 @@ export LC_ALL="en_GB.UTF-8"
 export LC_CTYPE="en_GB.UTF-8"
 
 ##
-# Local completion setup
-##
-
-#complete -F _tar_completion tar
-
-#_tar_completion() {
-#}
-
-# Heroku setup
-export DATABASE_URL=postgresql://postgres:postgres@localhost:5432
-
-##
 # Load custom local config
 ##
 if [ -f ${HOME}/.bash_profile_local ]
@@ -189,8 +184,6 @@ __git_ps1 ()
         printf " (%s)" "${b##refs/heads/}";
     fi
 }
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
-
+# Set the default editor
 export EDITOR=e
