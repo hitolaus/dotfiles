@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ $# != 2 ]; then
-	echo "Usage: xmlpost <xml-file> <url>"
-	exit 7
-fi
-
-cat $1 | curl -X POST -H 'Content-type: text/xml' -d @- $2
-

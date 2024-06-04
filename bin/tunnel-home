@@ -1,2 +1,0 @@
-#!/bin/bash
-ssh -f jhn@home.syscall.dk -L 5900:localhost:5900 -N

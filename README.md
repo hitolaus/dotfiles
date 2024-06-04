@@ -1,0 +1,7 @@
+# Environment
+
+## Homebrew
+
+```
+$ brew bundle
+```
