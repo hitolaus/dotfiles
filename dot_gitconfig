@@ -1,0 +1,7 @@
+[user]
+  name = Jakob Hilarius
+  email = jakob@syscall.dk
+
+[alias]
+  forget="!git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
+  forget-dryrun="!git fetch -p && git branch -vv | awk '/: gone]/{print $1}'"

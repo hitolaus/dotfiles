@@ -2,31 +2,24 @@
 #
 # Install the files in the home directory
 #
-# Jakob Hilarius <http://syscall.dk>, 2012
+# Jakob Hilarius <http://syscall.dk>, 2012-2024
 #
 
-for f in $(ls -1a)
+echo "Installing dotfiles..."
+
+for f in $(ls -1a dot_*)
 do
-	# Ignore this and parent directory
-	if [[ "$f" == "." || "$f" == ".." ]]; then
-		continue;
-	fi
-	# Ignore Git metadata
-	if [ "$f" == ".git" ]; then
-		continue;
-	fi
-	# Ignore this script
-	if [ "$f" == "$(basename $0)" ]; then
-		continue;
-	fi
-	# Ignore osx-setup script
-	if [ "$f" == "osx-setup.sh" ]; then
-		continue;
-	fi
-	if [ -e "$HOME/$f" ]; then
-		echo "$HOME/$f exist, ignoring"
+	dot_name=$(echo $f | sed s/dot_/\./)
+
+	if [ -e "$HOME/$dot_name" ]; then
+		echo "$HOME/$dot_name exist, ignoring"
 		continue;
 	fi
 	
-	ln -s "$(pwd)/$f" "$HOME/$f"
+	ln -s "$(pwd)/$dot_name" "$HOME/$dot_name"
 done
+
+if [[ $(uname) == "Darwin" ]]; then
+	echo "Setting MacOS defaults..."
+	sh "$(pwd)/macos/osx-setup.sh"
+fi

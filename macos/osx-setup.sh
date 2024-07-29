@@ -28,3 +28,12 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 # Add a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Dock: Dock on the left
+defaults write com.apple.dock orientation -string left
+
+# Dock: Disable recents
+defaults write com.apple.dock show-recents -bool false
+
+# Restart Dock
+killall Dock Finder
