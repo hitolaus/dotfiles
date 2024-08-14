@@ -23,3 +23,8 @@ if [[ $(uname) == "Darwin" ]]; then
 	echo "Setting MacOS defaults..."
 	sh "$(pwd)/macos/osx-setup.sh"
 fi
+
+if [[ $(uname) == "Linux" ]]; then
+	echo "Setting Linux defaults..."
+	sh "$(pwd)/linux/linux-setup.sh"
+fi
