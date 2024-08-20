@@ -16,7 +16,7 @@ do
 		continue;
 	fi
 	
-	ln -s "$(pwd)/$dot_name" "$HOME/$dot_name"
+	ln -s "$(pwd)/$f" "$HOME/$dot_name"
 done
 
 if [[ $(uname) == "Darwin" ]]; then

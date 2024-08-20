@@ -22,7 +22,7 @@ correct name when running the install script.
 If running on MacOS, Homebrew Bundle can be used to install applications.
 
 ```
-$ brew install --file=macos/Brewfile
+$ brew bundle install --file=macos/Brewfile
 ```
  To generate an updated Brew file run
 

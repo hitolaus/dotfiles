@@ -1,7 +1,15 @@
 [user]
   name = Jakob Hilarius
   email = jakob@syscall.dk
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKh+khZsjuaIbLp/01sPmzQinAJqAzy/lmo2mNXBuGeb
 
 [alias]
   forget="!git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
   forget-dryrun="!git fetch -p && git branch -vv | awk '/: gone]/{print $1}'"
+
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
