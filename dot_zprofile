@@ -11,15 +11,17 @@ alias grep='grep --colour=auto'
 # Environment variables
 #################################
 
+# MacOS specifics - Run this early so Homebrew is ready for other commands.
+if [[ $(uname) == "Darwin" ]]; then
+  # Setup environment for Homebrew
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+
 export PATH="$PATH:$HOME/bin"
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# MacOS specifics
-if [[ $(uname) == "Darwin" ]]; then
-  # Setup environment for Homebrew
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+eval "$(pyenv virtualenv-init -)"
