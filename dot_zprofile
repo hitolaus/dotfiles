@@ -4,7 +4,7 @@ setopt share_history
 #################################
 # Aliases
 #################################
-alias ls='eza'
+alias ls='eza --group-directories-first'
 alias grep='grep --colour=auto'
 
 #################################

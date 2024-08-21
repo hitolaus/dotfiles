@@ -29,3 +29,7 @@ $ brew bundle install --file=macos/Brewfile
  ```
 $ brew bundle dump --force
 ```
+
+## Credits
+
+Some of the Linux setup is heavily inspired by [Omakub](https://github.com/basecamp/omakub).
