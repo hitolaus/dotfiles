@@ -11,12 +11,8 @@ alias grep='grep --colour=auto'
 # Environment variables
 #################################
 
-# MacOS specifics - Run this early so Homebrew is ready for other commands.
-if [[ $(uname) == "Darwin" ]]; then
-  # Setup environment for Homebrew
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
+# Run this early so Homebrew is ready for other commands.
+eval "$($(brew --prefix)/bin/brew shellenv)" # We use Homebrew on both MacOS and Linux
 
 export PATH="$PATH:$HOME/bin"
 
